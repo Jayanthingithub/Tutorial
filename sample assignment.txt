@@ -1,0 +1,212 @@
+Q17
+DESCRIPTION
+Problem Statement
+You are given an integer, return its base 7 string representation.
+Input Format
+•	Single line containing an integer, n
+Constraints
+•	-1000 <= n <= 10000
+Output Format
+•	Single line returning the base 7 string representation
+Evaluation Parameters
+•	Sample Input
+201
+•	Sample Output
+405
+ANS:
+package com.DoSelect;
+import java.util.*;
+
+public class Main 
+{
+	
+	 public static String convertToBase7(int num) {
+	        if(num < 0)return "-" + convertToBase7(-num);
+	        else if(num < 7) return Integer.toString(num);
+	        else
+	            return convertToBase7(num/7) + convertToBase7(num%7);
+	    }
+	    
+	    public static void main(String[] args)
+	    {
+	        Scanner in = new Scanner(System.in);
+	        System.out.println("Enter the number to be converted");
+	        int i = in.nextInt();
+	    	System.out.print(convertToBase7(i));
+	    	in.close();
+	    }
+
+}
+
+Q38:::::::
+import java.util.Scanner;
+public class Q38 {
+
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the input String");
+		String input=sc.nextLine();
+		String[] words=input.split(" ");
+		System.out.println(words.length);
+		sc.close();
+	}
+}
+
+Q18:::::
+package Assignments;
+public class Material {
+	public int mass ;
+	public int temperature ;
+	public Material(int mass, int temperature){
+		this.mass=mass;	
+		this.temperature=temperature;
+	}
+	public String checkMaterial() throws Exception{
+		if(this.mass<0){
+			throw new MaterialException("Mass cannot be negative");
+		}
+		else if(this.mass==0){
+			throw new MaterialException("Mass cannot be zero");
+		}
+		else{
+			return "Valid material";
+		}
+	}
+	public String flowOfHeat() throws Exception{
+		try{
+			checkMaterial();
+		}
+		catch(MaterialException e1){
+			return "Invalid Material";
+		}
+		catch(Exception e2){
+			return "Other exception";
+		}
+		return "Both in equilibrium";
+				
+	}
+}
+*package Assignments;
+public class MaterialException extends Exception {
+
+	public MaterialException(String msg){
+		super(msg);
+	}
+		
+}
+*package Assignments;
+public class Main {
+      public static void main(String[] args) throws Exception {
+		Material m=new Material(12,32); 
+		String s=m.flowOfHeat(); 
+		System.out.println(s);
+	}
+}
+
+
+Q60:::::::
+import java.lang.*;
+import java.util.*;
+
+class Implementation{
+    public char splitAddAndReturnCharacter(String str)
+       {
+           int sum = 0;
+ 
+    for (int i = 0; i < str.length(); i++)
+    {
+ 
+        sum += (str.charAt(i) - 'a' + 1);
+    }
+ 
+   
+    if (sum % 26 == 0)
+        return 'z';
+    else
+    {
+        sum = sum % 26;
+        return (char)('a' + sum - 1);
+    }
+       }
+}
+
+public class Main{
+    public static void main(String [] args){
+        Implementation imp=new Implementation();
+        System.out.println(imp.splitAddAndReturnCharacter("java"));
+    }
+}
+
+Q39::::::::
+class Student{
+	String name;
+	int score;
+	public Student(String name, int score) {
+		this.name=name;
+		this.score=score;
+	}
+}
+
+class Classroom{
+	public String registerStudent(Student student) {
+		int j=0;
+		for(int i=0;i<student.name.length();i++) {
+			if(Character.isUpperCase(student.name.charAt(i))) {
+				j++;
+			}
+		}
+		if(j!=student.name.length()) {
+			return "Block letters needed";
+		}
+		else if(!(student.score>=0 && student.score<=100)) {
+			return "Invalid score";
+		}
+		else {
+			return "Registered";
+		}
+	}
+	public String studentCard(String card) {
+		int j=0;
+		for(int i=0;i<card.length();i++) {
+			if(Character.isDigit(card.charAt(i))) {
+				j++;
+			}
+		}
+		if(j!=card.length()) {
+			return "Invalid card";
+		}
+		else {
+			return "Valid card";
+		}
+	}
+}
+
+
+
+public class Q39 {
+	public static void main(String[] args) {
+		Student s1=new Student("A",6);
+		Classroom cm=new Classroom();
+		System.out.println(cm.registerStudent(s1));
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
